@@ -5,12 +5,28 @@
   
   <title>CallOfTheWild</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="##Swift弱引用
+###原文地址：Swift Weak References
+探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。
+###弱引用在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。
+当我们说起">
+<meta property="og:type" content="article">
 <meta property="og:title" content="CallOfTheWild">
-<meta property="og:url" content="http://128.199.129.45/index.html">
+<meta property="og:url" content="http://128.199.129.45/2016/12/07/Swift_weak_reference/index.html">
 <meta property="og:site_name" content="CallOfTheWild">
+<meta property="og:description" content="##Swift弱引用
+###原文地址：Swift Weak References
+探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。
+###弱引用在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。
+当我们说起">
+<meta property="og:updated_time" content="2016-12-07T13:09:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CallOfTheWild">
+<meta name="twitter:description" content="##Swift弱引用
+###原文地址：Swift Weak References
+探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。
+###弱引用在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。
+当我们说起">
   
     <link rel="alternate" href="/atom.xml" title="CallOfTheWild" type="application/atom+xml">
   
@@ -59,123 +75,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-iOS_universal_link" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/07/iOS_universal_link/" class="article-date">
-  <time datetime="2016-12-07T13:10:21.326Z" itemprop="datePublished">2016-12-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##iOS UniversalLink</p>
-<p>####Step1:创建一个json 格式的apple-app-site-associatio 文件如下：</p>
-<pre><code>{
-  &quot;applinks&quot;: {
-      &quot;apps&quot;: [],
-      &quot;details&quot;: [
-          {
-              &quot;appID&quot;: &quot;9JA89QQLNQ.com.apple.wwdc&quot;,
-              &quot;paths&quot;: [ &quot;/wwdc/news/&quot;, &quot;/videos/wwdc/2015/*&quot; ]
-          },
-          {
-              &quot;appID&quot;: &quot;TeamID.BundleID2&quot;,
-              &quot;paths&quot;: [ &quot;*&quot; ]
-          }
-      ]
-  }
-}
-</code></pre><p>“appID”组成部分：TeamID + BundleId TeamID可以从苹果开发账号页面也“Your Account”下查看，BundleId就直接在工程里看了</p>
-<p>根据 paths 键设定允许的路径列表</p>
-<pre><code>&quot;paths&quot;: [ &quot;/wwdc/news/&quot;, &quot;NOT /videos/wwdc/2010/*&quot;, &quot;/videos/wwdc/201?/*&quot;]
-</code></pre><p>如果不需要处理某个路径下的UniversalLink，可在前面加”NOT “申明<br>注意：paths 路径是大小写敏感的</p>
-<p>####Step2:上传 apple-app-site-association 文件<br>1、上传到web server根目录下或者.well-known子目录下</p>
-<p>例:</p>
-<pre><code>https://&lt;domain&gt;/apple-app-site-association 
-</code></pre><p>or </p>
-<pre><code>https://&lt;domain&gt;/.well-known/apple-app-site-association.
-</code></pre><p>2、web server 需要支持https,客户端需要通告https访问，并且不支持任何重定向</p>
-<p>####Step3:Xcode配置<br>1、添加域名到 Capabilities</p>
-<p>在 Xcode 的 capabilities 里 添加你的 APP 域名, 前缀为 applinks: 。在APP第一次启动的时候，它会从 <a href="https://domain.com/apple-app-site-association" target="_blank" rel="external">https://domain.com/apple-app-site-association</a> 下载apple-app-site-association这个文件。</p>
-<p><img src="https://dev.branch.io/img/pages/getting-started/universal-app-links/add_domain.png" alt="Alt text"></p>
-<p>2、在 AppDelegate 里实现方法处理Action： </p>
-<pre><code>- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler
-</code></pre><p>当iOS通过链接打开APP时，会有一个类型为NSUserActivityTypeBrowsingWeb的NSUserActivity对象，这个对象的webpageURL属性就是用户访问的URL</p>
-<p><img src="http://strivingboy.github.io/images/delegate.png" alt="Alt Text"></p>
-<p>###总结<br>整个流程，图如下：</p>
-<p><img src="http://cc.cocimg.com/api/uploads/20150902/1441174097574453.png" alt="Alt Text"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://128.199.129.45/2016/12/07/iOS_universal_link/" data-id="ciweycuj20002hywt4qnw8mih" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-iOS_archive_and_swift_upport" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/07/iOS_archive_and_swift_upport/" class="article-date">
-  <time datetime="2016-12-07T13:10:21.324Z" itemprop="datePublished">2016-12-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#iOSArchive与SwiftSupport</p>
-<p>之前在项目中的打包一般是这样，Archive生成一个Item文件，如下图：</p>
-<p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/archive_items.png?raw=true" alt="Alt text"></p>
-<p>然后Export</p>
-<p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/export_items.png?raw=true" alt="Alt text"></p>
-<p>接着将这个Application文件拖入iTunes中生成ipa，</p>
-<p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/itunes_items.png?raw=true" alt="Alt text"></p>
-<p>最后用Application Loader上传至AppStore.<br>至此整个打包上传的过程结束。</p>
-<p>后来项目引入了一个包含Swift的库，需要设置Xcode支持Swift<br><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/xcode_support_swift.png?raw=true" alt="Alt text"></p>
-<p>上述Archive、Upload过程就不行了</p>
-<p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/mail_error_msg.png?raw=true" alt="Alt text"></p>
-<p>原因是因为这种Archive方式生成的ipa没有包含Swift Support文件夹，这个文件夹里面包含了Swift运行所需的dylib</p>
-<p><a href="http://stackoverflow.com/questions/10715211/cannot-generate-ios-app-archive-in-xcode/31645306#31645306" target="_blank" rel="external">StackOverflow</a>查找了问题的解决方案，发现原来是sub-projects targets的skip-install属性被设为了No</p>
-<p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/xcode_skip_install.png?raw=true" alt="Alt text"></p>
-<p>将这个属性设置为Yes之后Archive生成的就是正常的iOS Apps</p>
-<p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/xcode_archive_iosapps.png?raw=true" alt="Alt text"></p>
-<p>然后通过Xcode自带的Upload to App Store即可成功上传</p>
-<p>##原因</p>
-<p>通过解压缩拖入iTunes生成的ipa发现文件目录如下：</p>
-<p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/unarchive_items_ipa.png?raw=true" alt="Alt text"></p>
-<p>而导出生成的ipa解压缩后如下:</p>
-<p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/unarchive_iosapp_ipa.png?raw=true" alt="Alt text"></p>
-<p>两者的区别显而易见，刚好缺少了Apple在拒绝提交的邮件里提到的SwiftSupport文件夹</p>
-<p>##总结</p>
-<p>1.skip install：如果你的项目里用到一些subprojcet，这些的skip install 一定要设为Yes，否则打包生成的就不是iOS Apps而是Items</p>
-<p>2.通过拖Xcode生成的Application文件进iTunes生成的ipa，如果包含swift代码的话一定要在ipa中补上SwiftSupport文件夹和相关dylib，否则无法提交</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://128.199.129.45/2016/12/07/iOS_archive_and_swift_upport/" data-id="ciweycuj00001hywtgdtpdk90" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Swift_weak_reference" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Swift_weak_reference" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/07/Swift_weak_reference/" class="article-date">
   <time datetime="2016-12-07T13:10:21.316Z" itemprop="datePublished">2016-12-07</time>
@@ -508,10 +408,23 @@ WeakTarget 0x00007fe17341d270: 000000010faa63e0 0000000200000002 0123456789abcde
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/07/iOS_archive_and_swift_upport/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
+</article>
 
 </section>
         
