@@ -361,14 +361,12 @@
 <p>将这个属性设置为Yes之后Archive生成的就是正常的iOS Apps</p>
 <p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/xcode_archive_iosapps.png?raw=true" alt="Alt text"></p>
 <p>然后通过Xcode自带的Upload to App Store即可成功上传</p>
-<p>##原因</p>
-<p>通过解压缩拖入iTunes生成的ipa发现文件目录如下：</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>通过解压缩拖入iTunes生成的ipa发现文件目录如下：</p>
 <p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/unarchive_items_ipa.png?raw=true" alt="Alt text"></p>
 <p>而导出生成的ipa解压缩后如下:</p>
 <p><img src="https://github.com/zzjconcent/blog_resources/blob/master/iOSArchiveAndSwiftSupport/unarchive_iosapp_ipa.png?raw=true" alt="Alt text"></p>
 <p>两者的区别显而易见，刚好缺少了Apple在拒绝提交的邮件里提到的SwiftSupport文件夹</p>
-<p>##总结</p>
-<p>1.skip install：如果你的项目里用到一些subprojcet，这些的skip install 一定要设为Yes，否则打包生成的就不是iOS Apps而是Items</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.skip install：如果你的项目里用到一些subprojcet，这些的skip install 一定要设为Yes，否则打包生成的就不是iOS Apps而是Items</p>
 <p>2.通过拖Xcode生成的Application文件进iTunes生成的ipa，如果包含swift代码的话一定要在ipa中补上SwiftSupport文件夹和相关dylib，否则无法提交</p>
 
           
@@ -504,8 +502,7 @@
       
         
           
-            <p>####Step1:创建一个json 格式的apple-app-site-associatio 文件如下：</p>
-<pre><code>{
+            <h4 id="Step1-创建一个json-格式的apple-app-site-associatio-文件如下："><a href="#Step1-创建一个json-格式的apple-app-site-associatio-文件如下：" class="headerlink" title="Step1:创建一个json 格式的apple-app-site-associatio 文件如下："></a>Step1:创建一个json 格式的apple-app-site-associatio 文件如下：</h4><pre><code>{
   &quot;applinks&quot;: {
       &quot;apps&quot;: [],
       &quot;details&quot;: [
@@ -524,20 +521,20 @@
 <p>根据 paths 键设定允许的路径列表</p>
 <pre><code>&quot;paths&quot;: [ &quot;/wwdc/news/&quot;, &quot;NOT /videos/wwdc/2010/*&quot;, &quot;/videos/wwdc/201?/*&quot;]
 </code></pre><p>如果不需要处理某个路径下的UniversalLink，可在前面加”NOT “申明<br>注意：paths 路径是大小写敏感的</p>
-<p>####Step2:上传 apple-app-site-association 文件<br>1、上传到web server根目录下或者.well-known子目录下</p>
+<h4 id="Step2-上传-apple-app-site-association-文件"><a href="#Step2-上传-apple-app-site-association-文件" class="headerlink" title="Step2:上传 apple-app-site-association 文件"></a>Step2:上传 apple-app-site-association 文件</h4><p>1、上传到web server根目录下或者.well-known子目录下</p>
 <p>例:</p>
 <pre><code>https://&lt;domain&gt;/apple-app-site-association 
 </code></pre><p>or </p>
 <pre><code>https://&lt;domain&gt;/.well-known/apple-app-site-association.
 </code></pre><p>2、web server 需要支持https,客户端需要通告https访问，并且不支持任何重定向</p>
-<p>####Step3:Xcode配置<br>1、添加域名到 Capabilities</p>
+<h4 id="Step3-Xcode配置"><a href="#Step3-Xcode配置" class="headerlink" title="Step3:Xcode配置"></a>Step3:Xcode配置</h4><p>1、添加域名到 Capabilities</p>
 <p>在 Xcode 的 capabilities 里 添加你的 APP 域名, 前缀为 applinks: 。在APP第一次启动的时候，它会从 <a href="https://domain.com/apple-app-site-association" target="_blank" rel="external">https://domain.com/apple-app-site-association</a> 下载apple-app-site-association这个文件。</p>
 <p><img src="https://dev.branch.io/img/pages/getting-started/universal-app-links/add_domain.png" alt="Alt text"></p>
 <p>2、在 AppDelegate 里实现方法处理Action： </p>
 <pre><code>- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler
 </code></pre><p>当iOS通过链接打开APP时，会有一个类型为NSUserActivityTypeBrowsingWeb的NSUserActivity对象，这个对象的webpageURL属性就是用户访问的URL</p>
 <p><img src="http://strivingboy.github.io/images/delegate.png" alt="Alt Text"></p>
-<p>###总结<br>整个流程，图如下：</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>整个流程，图如下：</p>
 <p><img src="http://cc.cocimg.com/api/uploads/20150902/1441174097574453.png" alt="Alt Text"></p>
 
           
@@ -673,15 +670,14 @@
       
         
           
-            <p>###原文地址：<a href="https://www.mikeash.com/pyblog/friday-qa-2015-12-11-swift-weak-references.html" target="_blank" rel="external">Swift Weak References</a></p>
-<p>探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。</p>
-<p>###弱引用<br>在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。</p>
+            <h3 id="原文地址：Swift-Weak-References"><a href="#原文地址：Swift-Weak-References" class="headerlink" title="原文地址：Swift Weak References"></a>原文地址：<a href="https://www.mikeash.com/pyblog/friday-qa-2015-12-11-swift-weak-references.html" target="_blank" rel="external">Swift Weak References</a></h3><p>探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。</p>
+<h3 id="弱引用"><a href="#弱引用" class="headerlink" title="弱引用"></a>弱引用</h3><p>在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。</p>
 <p>当我们说起‘弱引用’，一般指的是清零的弱引用，当弱引用的目标被销毁，弱引用就变为nil，当然在trap，crash或者调用nasal demons的时候，也有可能出现不清零的弱引用。你在使用Objective-C的<code>unsafe_unretained</code>或者Swift的<code>unowned</code>的时候就会出现（需要注意的是Objective-C给我们的是nasal demons版本，Swift则负责可靠的crash）</p>
 <p>清零弱引用非常容易出现在我们身边，它们在引用计数的语言里非常有用。它们并不创建强引用循环，所以不需要手动打破反向引用就能使循环引用可以正常退出。它们是如此有用以至于在Apple介绍了ARC和在语言层面将弱引用和垃圾收集区别开来前我就已经实现了<a href="https://www.mikeash.com/pyblog/introducing-mazeroingweakref.html" target="_blank" rel="external">我自己的弱引用版本</a></p>
-<p>###它是怎么起作用的？<br>典型的清零弱引用声明方法是为每个对象保持一个弱引用的表。当一个对象的弱引用被创建，它就被加入这个表中，当它被重新赋值或者失效，它就被从这个表中移除。当一个对象被销毁，所有在这个表中的引用都被清空。在多线程的环境中（举个例子,在这几年的所有情况里），实现必须在同一时间同步获取和销毁一个弱引用来避免一个线程已经释放最后一个强引用但是另外一个线程却试图加载这个对象的弱引用造成的冲突。</p>
+<h3 id="它是怎么起作用的？"><a href="#它是怎么起作用的？" class="headerlink" title="它是怎么起作用的？"></a>它是怎么起作用的？</h3><p>典型的清零弱引用声明方法是为每个对象保持一个弱引用的表。当一个对象的弱引用被创建，它就被加入这个表中，当它被重新赋值或者失效，它就被从这个表中移除。当一个对象被销毁，所有在这个表中的引用都被清空。在多线程的环境中（举个例子,在这几年的所有情况里），实现必须在同一时间同步获取和销毁一个弱引用来避免一个线程已经释放最后一个强引用但是另外一个线程却试图加载这个对象的弱引用造成的冲突。</p>
 <p>在我的实现里，每一个弱引用都是一个完全成熟的对象，弱引用的表就是一个弱引用对象的set，这间接的内存使用造成了一些资源上的浪费，但是这方便的让引用们成为了一个个完全的对象。</p>
 <p>在Apple的Objective－C的声明中，每个弱引用都是目标对象的一个普通指针，编译器并不直接读写而是使用辅助函数来处理。当储存一个弱引用时，储存函数将这个指针位置注册为这个目标的一个弱引用。当读取一个弱引用时，读取函数结合引用计数来保证它不会返回一个被销毁的对象。</p>
-<p>###清零的过程<br>让我们写一些代码看看在这个时候发生了什么。</p>
+<h3 id="清零的过程"><a href="#清零的过程" class="headerlink" title="清零的过程"></a>清零的过程</h3><p>让我们写一些代码看看在这个时候发生了什么。</p>
 <p>我们希望可以转储一个对象的内存。这个函数获得了一块内存区域，将它分解成一个个指针大小，然后将一切转化成方便的16进制：</p>
 <pre><code>func contents(ptr: UnsafePointer&lt;Void&gt;, _ length: Int) -&gt; String {
     let wordPtr = UnsafePointer&lt;UInt&gt;(ptr)
@@ -972,7 +968,7 @@ WeakTarget 0x00007fe17341d270: 000000010faa63e0 0000000200000002 0123456789abcde
   }
 }
 </code></pre><p>（注释：如果你在仓库里看这些代码，命名可能在很多情况下变成了unowned，上面的命名是在写这篇文章的时候的命名。你可以在2.2这个版本看到和我这一样的代码，或者看最新的，但是要注意命名或者实现的改变）</p>
-<p>###所有的结论<br>通篇文章，我们已经看到Swift弱引用实际上是如何工作的：</p>
+<h3 id="所有的结论"><a href="#所有的结论" class="headerlink" title="所有的结论"></a>所有的结论</h3><p>通篇文章，我们已经看到Swift弱引用实际上是如何工作的：</p>
 <p>1.弱引用仅仅是指向对象的指针<br>2.弱引用并不想它们在Objective－C中一样被追踪<br>3.每个swift对象在强引用的引用后面都有一个弱引用的引用计数<br>4.Swift将对象的析构从对象的释放中分离开来了，一个对象可以在不释放它占用内存的情况下被析构释放它的外部资源<br>5.当Swift对象的强引用计数变为0，但此时弱引用的引用计数大于0，这个对象被析构但是并没有被释放<br>6.这意味着弱指针对于一个释放了的对象来说依然是一个有效的指针，并且可以在不崩溃或者载入垃圾数据的情况下被反向引用，它们仅仅是指向了一个在僵尸状态的对象<br>7.当一个弱引用被载入，运行时（runtime）检查对象的状态，如果这个对象是个僵尸对象，它将会清0这个弱引用，减少弱引用的引用计数，然后返回nil<br>8.当一个僵尸对象所有的弱引用都被清0，僵尸对象会被释放</p>
 <p>这个设计和Objective－C的实现有一些有意思的比较：</p>
 <ul>
@@ -982,7 +978,7 @@ WeakTarget 0x00007fe17341d270: 000000010faa63e0 0000000200000002 0123456789abcde
 <li>所有对象的弱引用都需要外部内存来存储。实际上，这在64位系统下是无关紧要的。首字段占用了指针大小的空间，和强弱引用一起共享。如果弱引用计数并不存在，强引用计数就单独占有这所有的64位。有些情况下强引用有可能会<a href="http://www.sealiesoftware.com/blog/archive/2013/09/24/objc_explain_Non-pointer_isa.html" target="_blank" rel="external">non-pointer</a>被移到isa，但是我并不知道这有什么重要的和要怎么把它搞出来。对于32位，弱引用的引用计数每次加4。但是现在的32位设备越来越少了</li>
 <li>因为访问弱指针很方便，相同的机制可以被用了实现<code>unowned</code>。在底层，<code>unowned</code>运行的很像<code>weak</code>，除了它在对象消失的时候并不会返回nil而是会崩溃这个特性。在Objective－C里<code>__unsafe_unretained</code>被用来实现未定义行为的原始指针，因为它需要在被访问时表现的快，而载入弱指针没这么快</li>
 </ul>
-<p>###总结<br>Swift的弱指针使用了有意思的实现，它兼具正确、快速、占有内存少的优点。通过跟踪每个对象的弱引用的引用计数和解耦对象的析构与释放，弱引用可以被解析的安全和快速。源码和标准库让我们在源码层面看清楚了这一过程，而不是像以前一样通过慢慢找内存转储。当然就像你在前面看到的，完全揭示这些特性还是挺难的。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Swift的弱指针使用了有意思的实现，它兼具正确、快速、占有内存少的优点。通过跟踪每个对象的弱引用的引用计数和解耦对象的析构与释放，弱引用可以被解析的安全和快速。源码和标准库让我们在源码层面看清楚了这一过程，而不是像以前一样通过慢慢找内存转储。当然就像你在前面看到的，完全揭示这些特性还是挺难的。</p>
 
           
         

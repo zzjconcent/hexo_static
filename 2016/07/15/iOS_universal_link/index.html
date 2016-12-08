@@ -84,37 +84,34 @@
 
 
 
-<meta name="description" content="####Step1:创建一个json 格式的apple-app-site-associatio 文件如下：
-{
+<meta name="description" content="Step1:创建一个json 格式的apple-app-site-associatio 文件如下：{
   &amp;quot;applinks&amp;quot;: {
       &amp;quot;apps&amp;quot;: [],
       &amp;quot;details&amp;quot;: [
           {
-              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ">
+              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ.com.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS UniversalLink">
 <meta property="og:url" content="http://128.199.129.45/2016/07/15/iOS_universal_link/index.html">
 <meta property="og:site_name" content="CallOfTheWild">
-<meta property="og:description" content="####Step1:创建一个json 格式的apple-app-site-associatio 文件如下：
-{
+<meta property="og:description" content="Step1:创建一个json 格式的apple-app-site-associatio 文件如下：{
   &amp;quot;applinks&amp;quot;: {
       &amp;quot;apps&amp;quot;: [],
       &amp;quot;details&amp;quot;: [
           {
-              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ">
+              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ.com.">
 <meta property="og:image" content="https://dev.branch.io/img/pages/getting-started/universal-app-links/add_domain.png">
 <meta property="og:image" content="http://strivingboy.github.io/images/delegate.png">
 <meta property="og:image" content="http://cc.cocimg.com/api/uploads/20150902/1441174097574453.png">
-<meta property="og:updated_time" content="2016-12-08T06:55:31.000Z">
+<meta property="og:updated_time" content="2016-12-08T08:47:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS UniversalLink">
-<meta name="twitter:description" content="####Step1:创建一个json 格式的apple-app-site-associatio 文件如下：
-{
+<meta name="twitter:description" content="Step1:创建一个json 格式的apple-app-site-associatio 文件如下：{
   &amp;quot;applinks&amp;quot;: {
       &amp;quot;apps&amp;quot;: [],
       &amp;quot;details&amp;quot;: [
           {
-              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ">
+              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ.com.">
 <meta name="twitter:image" content="https://dev.branch.io/img/pages/getting-started/universal-app-links/add_domain.png">
 
 
@@ -361,8 +358,7 @@
       
 
       
-        <p>####Step1:创建一个json 格式的apple-app-site-associatio 文件如下：</p>
-<pre><code>{
+        <h4 id="Step1-创建一个json-格式的apple-app-site-associatio-文件如下："><a href="#Step1-创建一个json-格式的apple-app-site-associatio-文件如下：" class="headerlink" title="Step1:创建一个json 格式的apple-app-site-associatio 文件如下："></a>Step1:创建一个json 格式的apple-app-site-associatio 文件如下：</h4><pre><code>{
   &quot;applinks&quot;: {
       &quot;apps&quot;: [],
       &quot;details&quot;: [
@@ -381,20 +377,20 @@
 <p>根据 paths 键设定允许的路径列表</p>
 <pre><code>&quot;paths&quot;: [ &quot;/wwdc/news/&quot;, &quot;NOT /videos/wwdc/2010/*&quot;, &quot;/videos/wwdc/201?/*&quot;]
 </code></pre><p>如果不需要处理某个路径下的UniversalLink，可在前面加”NOT “申明<br>注意：paths 路径是大小写敏感的</p>
-<p>####Step2:上传 apple-app-site-association 文件<br>1、上传到web server根目录下或者.well-known子目录下</p>
+<h4 id="Step2-上传-apple-app-site-association-文件"><a href="#Step2-上传-apple-app-site-association-文件" class="headerlink" title="Step2:上传 apple-app-site-association 文件"></a>Step2:上传 apple-app-site-association 文件</h4><p>1、上传到web server根目录下或者.well-known子目录下</p>
 <p>例:</p>
 <pre><code>https://&lt;domain&gt;/apple-app-site-association 
 </code></pre><p>or </p>
 <pre><code>https://&lt;domain&gt;/.well-known/apple-app-site-association.
 </code></pre><p>2、web server 需要支持https,客户端需要通告https访问，并且不支持任何重定向</p>
-<p>####Step3:Xcode配置<br>1、添加域名到 Capabilities</p>
+<h4 id="Step3-Xcode配置"><a href="#Step3-Xcode配置" class="headerlink" title="Step3:Xcode配置"></a>Step3:Xcode配置</h4><p>1、添加域名到 Capabilities</p>
 <p>在 Xcode 的 capabilities 里 添加你的 APP 域名, 前缀为 applinks: 。在APP第一次启动的时候，它会从 <a href="https://domain.com/apple-app-site-association" target="_blank" rel="external">https://domain.com/apple-app-site-association</a> 下载apple-app-site-association这个文件。</p>
 <p><img src="https://dev.branch.io/img/pages/getting-started/universal-app-links/add_domain.png" alt="Alt text"></p>
 <p>2、在 AppDelegate 里实现方法处理Action： </p>
 <pre><code>- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler
 </code></pre><p>当iOS通过链接打开APP时，会有一个类型为NSUserActivityTypeBrowsingWeb的NSUserActivity对象，这个对象的webpageURL属性就是用户访问的URL</p>
 <p><img src="http://strivingboy.github.io/images/delegate.png" alt="Alt Text"></p>
-<p>###总结<br>整个流程，图如下：</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>整个流程，图如下：</p>
 <p><img src="http://cc.cocimg.com/api/uploads/20150902/1441174097574453.png" alt="Alt Text"></p>
 
       
@@ -487,8 +483,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/9083634?v=3&amp;s=460"
@@ -541,6 +546,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-创建一个json-格式的apple-app-site-associatio-文件如下："><span class="nav-number">1.</span> <span class="nav-text">Step1:创建一个json 格式的apple-app-site-associatio 文件如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-上传-apple-app-site-association-文件"><span class="nav-number">2.</span> <span class="nav-text">Step2:上传 apple-app-site-association 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-Xcode配置"><span class="nav-number">3.</span> <span class="nav-text">Step3:Xcode配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
