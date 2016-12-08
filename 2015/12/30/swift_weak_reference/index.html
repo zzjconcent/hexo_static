@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -84,28 +84,25 @@
 
 
 
-<meta name="description" content="##Swift弱引用
-###原文地址：Swift Weak References
+<meta name="description" content="###原文地址：Swift Weak References
 探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。
 ###弱引用在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。
-当我们说起">
+当我们说起‘弱引用’，一般指的是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CallOfTheWild">
-<meta property="og:url" content="http://128.199.129.45/2016/12/08/Swift_weak_reference/index.html">
+<meta property="og:title" content="Swift弱引用">
+<meta property="og:url" content="http://128.199.129.45/2015/12/30/swift_weak_reference/index.html">
 <meta property="og:site_name" content="CallOfTheWild">
-<meta property="og:description" content="##Swift弱引用
-###原文地址：Swift Weak References
+<meta property="og:description" content="###原文地址：Swift Weak References
 探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。
 ###弱引用在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。
-当我们说起">
-<meta property="og:updated_time" content="2016-12-07T13:09:00.000Z">
+当我们说起‘弱引用’，一般指的是">
+<meta property="og:updated_time" content="2016-12-08T06:55:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CallOfTheWild">
-<meta name="twitter:description" content="##Swift弱引用
-###原文地址：Swift Weak References
+<meta name="twitter:title" content="Swift弱引用">
+<meta name="twitter:description" content="###原文地址：Swift Weak References
 探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。
 ###弱引用在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。
-当我们说起">
+当我们说起‘弱引用’，一般指的是">
 
 
 
@@ -133,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://128.199.129.45/2016/12/08/Swift_weak_reference/"/>
+  <link rel="canonical" href="http://128.199.129.45/2015/12/30/swift_weak_reference/"/>
 
 
 
 
 
-  <title>  | CallOfTheWild </title>
+  <title> Swift弱引用 | CallOfTheWild </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://128.199.129.45/2016/12/08/Swift_weak_reference/">
+  <link itemprop="mainEntityOfPage" href="http://128.199.129.45/2015/12/30/swift_weak_reference/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="zzj">
@@ -284,7 +281,7 @@
             
             
               
-                
+                Swift弱引用
               
             
           </h1>
@@ -297,8 +294,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T06:52:46+00:00">
-                2016-12-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-30T20:00:00+00:00">
+                2015-12-30
               </time>
             
 
@@ -307,6 +304,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -333,8 +348,7 @@
       
 
       
-        <p>##Swift弱引用</p>
-<p>###原文地址：<a href="https://www.mikeash.com/pyblog/friday-qa-2015-12-11-swift-weak-references.html" target="_blank" rel="external">Swift Weak References</a></p>
+        <p>###原文地址：<a href="https://www.mikeash.com/pyblog/friday-qa-2015-12-11-swift-weak-references.html" target="_blank" rel="external">Swift Weak References</a></p>
 <p>探索Swift，就像你火星上的洞穴里，闭着眼睛捂着耳朵一样摸索，好在Swift刚刚开源了，这使得探索Swift的其中一个非常有意思的特性’弱引用’变得简单多了。</p>
 <p>###弱引用<br>在垃圾收集或者引用计数的语言里，强引用保持对象不被销毁，弱引用却并不能。一个对象在被强引用时并不能被销毁，但是在弱引用条件下就可以。</p>
 <p>当我们说起‘弱引用’，一般指的是清零的弱引用，当弱引用的目标被销毁，弱引用就变为nil，当然在trap，crash或者调用nasal demons的时候，也有可能出现不清零的弱引用。你在使用Objective-C的<code>unsafe_unretained</code>或者Swift的<code>unowned</code>的时候就会出现（需要注意的是Objective-C给我们的是nasal demons版本，Swift则负责可靠的crash）</p>
@@ -665,20 +679,26 @@ WeakTarget 0x00007fe17341d270: 000000010faa63e0 0000000200000002 0123456789abcde
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/12/08/iOS_archive_and_swift_upport/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
-              </a>
             
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/15/iOS_universal_link/" rel="prev" title="iOS UniversalLink">
+                iOS UniversalLink <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -743,7 +763,21 @@ WeakTarget 0x00007fe17341d270: 000000010faa63e0 0000000200000002 0123456789abcde
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
