@@ -84,35 +84,19 @@
 
 
 
-<meta name="description" content="Step1:创建一个json 格式的apple-app-site-associatio 文件如下：{
-  &amp;quot;applinks&amp;quot;: {
-      &amp;quot;apps&amp;quot;: [],
-      &amp;quot;details&amp;quot;: [
-          {
-              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ.com.">
+<meta name="description" content="一般来说取某天所在周第一天的取法是在NSDate的Catagory中实现如下函数：
+123456789101112- (NSDate *)firstDayOfWeek&amp;#123;    NSCalendar* currentCalendar = [NSCalendar currentCalendar];    NSDateComponents *dateComponents = [currentC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS UniversalLink">
-<meta property="og:url" content="http://128.199.129.45/2016/07/15/iOS_universal_link/index.html">
+<meta property="og:title" content="NSDate取每周的第一天">
+<meta property="og:url" content="http://128.199.129.45/2016/06/28/get_week_firstday/index.html">
 <meta property="og:site_name" content="CallOfTheWild">
-<meta property="og:description" content="Step1:创建一个json 格式的apple-app-site-associatio 文件如下：{
-  &amp;quot;applinks&amp;quot;: {
-      &amp;quot;apps&amp;quot;: [],
-      &amp;quot;details&amp;quot;: [
-          {
-              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ.com.">
-<meta property="og:image" content="https://dev.branch.io/img/pages/getting-started/universal-app-links/add_domain.png">
-<meta property="og:image" content="http://strivingboy.github.io/images/delegate.png">
-<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20150902/1441174097574453.png">
-<meta property="og:updated_time" content="2016-12-08T08:47:33.000Z">
+<meta property="og:description" content="一般来说取某天所在周第一天的取法是在NSDate的Catagory中实现如下函数：
+123456789101112- (NSDate *)firstDayOfWeek&amp;#123;    NSCalendar* currentCalendar = [NSCalendar currentCalendar];    NSDateComponents *dateComponents = [currentC">
+<meta property="og:updated_time" content="2016-12-09T04:03:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS UniversalLink">
-<meta name="twitter:description" content="Step1:创建一个json 格式的apple-app-site-associatio 文件如下：{
-  &amp;quot;applinks&amp;quot;: {
-      &amp;quot;apps&amp;quot;: [],
-      &amp;quot;details&amp;quot;: [
-          {
-              &amp;quot;appID&amp;quot;: &amp;quot;9JA89QQLNQ.com.">
-<meta name="twitter:image" content="https://dev.branch.io/img/pages/getting-started/universal-app-links/add_domain.png">
+<meta name="twitter:title" content="NSDate取每周的第一天">
+<meta name="twitter:description" content="一般来说取某天所在周第一天的取法是在NSDate的Catagory中实现如下函数：
+123456789101112- (NSDate *)firstDayOfWeek&amp;#123;    NSCalendar* currentCalendar = [NSCalendar currentCalendar];    NSDateComponents *dateComponents = [currentC">
 
 
 
@@ -140,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://128.199.129.45/2016/07/15/iOS_universal_link/"/>
+  <link rel="canonical" href="http://128.199.129.45/2016/06/28/get_week_firstday/"/>
 
 
 
 
 
-  <title> iOS UniversalLink | CallOfTheWild </title>
+  <title> NSDate取每周的第一天 | CallOfTheWild </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +251,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://128.199.129.45/2016/07/15/iOS_universal_link/">
+  <link itemprop="mainEntityOfPage" href="http://128.199.129.45/2016/06/28/get_week_firstday/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="zzj">
@@ -291,7 +275,7 @@
             
             
               
-                iOS UniversalLink
+                NSDate取每周的第一天
               
             
           </h1>
@@ -304,8 +288,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-15T20:00:00+00:00">
-                2016-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-28T20:00:00+00:00">
+                2016-06-28
               </time>
             
 
@@ -358,40 +342,19 @@
       
 
       
-        <h4 id="Step1-创建一个json-格式的apple-app-site-associatio-文件如下："><a href="#Step1-创建一个json-格式的apple-app-site-associatio-文件如下：" class="headerlink" title="Step1:创建一个json 格式的apple-app-site-associatio 文件如下："></a>Step1:创建一个json 格式的apple-app-site-associatio 文件如下：</h4><pre><code>{
-  &quot;applinks&quot;: {
-      &quot;apps&quot;: [],
-      &quot;details&quot;: [
-          {
-              &quot;appID&quot;: &quot;9JA89QQLNQ.com.apple.wwdc&quot;,
-              &quot;paths&quot;: [ &quot;/wwdc/news/&quot;, &quot;/videos/wwdc/2015/*&quot; ]
-          },
-          {
-              &quot;appID&quot;: &quot;TeamID.BundleID2&quot;,
-              &quot;paths&quot;: [ &quot;*&quot; ]
-          }
-      ]
-  }
-}
-</code></pre><p>“appID”组成部分：TeamID + BundleId TeamID可以从苹果开发账号页面也“Your Account”下查看，BundleId就直接在工程里看了</p>
-<p>根据 paths 键设定允许的路径列表</p>
-<pre><code>&quot;paths&quot;: [ &quot;/wwdc/news/&quot;, &quot;NOT /videos/wwdc/2010/*&quot;, &quot;/videos/wwdc/201?/*&quot;]
-</code></pre><p>如果不需要处理某个路径下的UniversalLink，可在前面加”NOT “申明<br>注意：paths 路径是大小写敏感的</p>
-<h4 id="Step2-上传-apple-app-site-association-文件"><a href="#Step2-上传-apple-app-site-association-文件" class="headerlink" title="Step2:上传 apple-app-site-association 文件"></a>Step2:上传 apple-app-site-association 文件</h4><p>1、上传到web server根目录下或者.well-known子目录下</p>
-<p>例:</p>
-<pre><code>https://&lt;domain&gt;/apple-app-site-association 
-</code></pre><p>or </p>
-<pre><code>https://&lt;domain&gt;/.well-known/apple-app-site-association.
-</code></pre><p>2、web server 需要支持https,客户端需要通告https访问，并且不支持任何重定向</p>
-<h4 id="Step3-Xcode配置"><a href="#Step3-Xcode配置" class="headerlink" title="Step3:Xcode配置"></a>Step3:Xcode配置</h4><p>1、添加域名到 Capabilities</p>
-<p>在 Xcode 的 capabilities 里 添加你的 APP 域名, 前缀为 applinks: 。在APP第一次启动的时候，它会从 <a href="https://domain.com/apple-app-site-association" target="_blank" rel="external">https://domain.com/apple-app-site-association</a> 下载apple-app-site-association这个文件。</p>
-<p><img src="https://dev.branch.io/img/pages/getting-started/universal-app-links/add_domain.png" alt="Alt text"></p>
-<p>2、在 AppDelegate 里实现方法处理Action： </p>
-<pre><code>- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler
-</code></pre><p>当iOS通过链接打开APP时，会有一个类型为NSUserActivityTypeBrowsingWeb的NSUserActivity对象，这个对象的webpageURL属性就是用户访问的URL</p>
-<p><img src="http://strivingboy.github.io/images/delegate.png" alt="Alt Text"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>整个流程，图如下：</p>
-<p><img src="http://cc.cocimg.com/api/uploads/20150902/1441174097574453.png" alt="Alt Text"></p>
+        <p>一般来说取某天所在周第一天的取法是在NSDate的Catagory中实现如下函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (NSDate *)firstDayOfWeek</div><div class="line">&#123;</div><div class="line">    NSCalendar* currentCalendar = [NSCalendar currentCalendar];</div><div class="line">    NSDateComponents *dateComponents = [currentCalendar components:NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitWeekOfYear fromDate:self];</div><div class="line">    NSInteger weekDay = [dateComponents weekday];</div><div class="line">    [dateComponents setWeekday:1];</div><div class="line">    [dateComponents setHour:0];</div><div class="line">    [dateComponents setMinute:0];</div><div class="line">    [dateComponents setSecond:0];</div><div class="line">    NSDate *date = [currentCalendar dateFromComponents:dateComponents];</div><div class="line">    return date;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一般来说会得到正确的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-06-26 20:17:32.023 Demo[4604:470882] today:2016-06-26 12:17:32 +0000, week&apos;sfirstday:2016-06-25 16:00:00 +0000</div></pre></td></tr></table></figure>
+<p>但是悲剧的是有些情况下取出来的时间会比这周的所有时间晚，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-06-28 13:24:13.505 Demo[1013:334114] today:2016-06-28 12:24:13 +0000, week&apos;sfirstday:2016-07-02 23:00:00 +0000</div></pre></td></tr></table></figure>
+<p>这是为什么呢？让我们多打一点日志出来看看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">2016-06-28 13:34:29.851 Demo[1026:336972] date:2016-01-29 00:00:00 +0000, weekday:6, week:4</div><div class="line">2016-06-28 13:34:29.851 Demo[1026:336972] date:2016-01-30 00:00:00 +0000, weekday:7, week:4</div><div class="line">2016-06-28 13:34:29.852 Demo[1026:336972] date:2016-01-31 00:00:00 +0000, weekday:1, week:4</div><div class="line">2016-06-28 13:34:29.852 Demo[1026:336972] date:2016-02-01 00:00:00 +0000, weekday:2, week:5</div><div class="line">2016-06-28 13:34:29.852 Demo[1026:336972] date:2016-02-02 00:00:00 +0000, weekday:3, week:5</div><div class="line">2016-06-28 13:34:29.852 Demo[1026:336972] date:2016-02-03 00:00:00 +0000, weekday:4, week:5</div><div class="line">2016-06-28 13:34:29.853 Demo[1026:336972] date:2016-02-04 00:00:00 +0000, weekday:5, week:5</div><div class="line">2016-06-28 13:34:29.855 Demo[1026:336972] date:2016-02-05 00:00:00 +0000, weekday:6, week:5</div><div class="line">2016-06-28 13:34:29.855 Demo[1026:336972] date:2016-02-06 00:00:00 +0000, weekday:7, week:5</div><div class="line">2016-06-28 13:34:29.857 Demo[1026:336972] date:2016-02-07 00:00:00 +0000, weekday:1, week:5</div></pre></td></tr></table></figure>
+<p>可以看到的一个奇怪的现象是，2016-01-31这个日期是2016年第4周的最后一天，且是星期日。<br>为什么星期日是最后一天，查看设置（通用-&gt;语言与地区-&gt;地区）发现设备地区为：英国。<br>得出结论：在中国星期日是一个星期的第一天，而在英国等一些其他地区一周是从星期一开始的！所以通过上面 -(NSDate *)firstDayOfWeek方法找出的一周第一天会比当前时间晚，因为那并不是一周的第一天。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>一、NSDateComponents的weekDay属性有1、2、3、4、5、6、7分别对应日、一、二、三、四、五、六</p>
+<p>二、一周的第一天不一定是从周日开始的有可能是从周一开始的</p>
+<p>三、如果产品有需求：无视地区APP的第一天从周日开始，取每周第一天的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (NSDate *)firstDayOfWeek</div><div class="line">&#123;</div><div class="line">    NSCalendar* currentCalendar = [NSCalendar currentCalendar];</div><div class="line">    NSDateComponents *dateComponents = [currentCalendar components:NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitWeekOfYear | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:self];</div><div class="line">    NSInteger weekDay = [dateComponents weekday];</div><div class="line">    //一些国家每周的开始是周一，所以不能用setweekday方法确定日期</div><div class="line">    [dateComponents setDay:dateComponents.day - weekDay + 1];</div><div class="line">    NSDate *date = [currentCalendar dateFromComponents:dateComponents];</div><div class="line">    return date;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -424,8 +387,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/28/get_week_firstday/" rel="next" title="NSDate取每周的第一天">
-                <i class="fa fa-chevron-left"></i> NSDate取每周的第一天
+              <a href="/2015/12/30/swift_weak_reference/" rel="next" title="Swift弱引用">
+                <i class="fa fa-chevron-left"></i> Swift弱引用
               </a>
             
           </div>
@@ -434,8 +397,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/03/iOS_archive_and_swift_upport/" rel="prev" title="iOSArchive与SwiftSupport">
-                iOSArchive与SwiftSupport <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/15/iOS_universal_link/" rel="prev" title="iOS UniversalLink">
+                iOS UniversalLink <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -556,7 +519,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-创建一个json-格式的apple-app-site-associatio-文件如下："><span class="nav-number">1.</span> <span class="nav-text">Step1:创建一个json 格式的apple-app-site-associatio 文件如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-上传-apple-app-site-association-文件"><span class="nav-number">2.</span> <span class="nav-text">Step2:上传 apple-app-site-association 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-Xcode配置"><span class="nav-number">3.</span> <span class="nav-text">Step3:Xcode配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
